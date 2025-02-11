@@ -7,9 +7,6 @@ export default defineNuxtConfig({
     preset: "cloudflare_durable",
     experimental: {
       tasks: true,
-    },
-    scheduledTasks: {
-      '* * * * *': ['now'] // 1分ごとに実行
     }
   },
 
