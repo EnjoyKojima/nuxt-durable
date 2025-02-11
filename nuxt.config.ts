@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   nitro: {
-    preset: "cloudflare_module",
+    preset: "cloudflare_durable",
     experimental: {
       tasks: true,
     },
