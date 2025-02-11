@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "nuxt-cron",
+  "name": "nuxt-durable",
   "main": "./.output/server/index.mjs",
   "compatibility_date": "2025-01-29",
   "assets": {
@@ -11,9 +11,20 @@
     "enabled": true
   },
 
-  "triggers": {
-    "crons": [
-      // "* * * * *"
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "$DurableObject",
+        "class_name": "$DurableObject",
+        "script_name": "nuxt-durable" // localで`wrangler dev`を実行する際に必要
+      }
     ]
-  }
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_classes": ["$DurableObject"]
+    }
+  ]
 }
